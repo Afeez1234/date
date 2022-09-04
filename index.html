@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="showTime()">
+    <h3>WElcome To The Date Checking Website</h3>
+    <div>
+        
+        <span id="val"></span>
+        <span id="huy"></span>
+    </div>
+
+
+    <script>
+        function showTime(){
+            const todayDate = new Date();
+            /*const month = todayDate.getMonth() + 1;
+            const year = todayDate.getFullYear();
+            const days = todayDate.getDate();
+            */
+            var hour = todayDate.getHours();
+            var min = todayDate.getMinutes();
+            var sec = todayDate.getSeconds();
+            if(hour>11){
+            document.getElementById('huy').innerHTML= "PM";
+           }
+           else{
+            document.getElementById('huy').innerHTML= "AM";
+           } 
+
+
+            if(hour>12){
+                hour = hour-12
+            }
+            else{
+                hour  = hour
+            }
+            
+           if(sec<10){
+            sec = "0" + sec;
+           }
+           else{
+            sec = sec;
+           }
+
+           if(min<10){
+            min = "0" + min;
+           }
+           else{
+            min = min;
+           }
+           
+           var currentTime = `${hour}:${min}:${sec}`;
+
+           document.getElementById('val').innerHTML = currentTime;
+        }
+        setInterval(showTime, 1000);
+            
+
+    </script>
+</body>
+</html>
